@@ -1,0 +1,46 @@
+The solution involves either understanding and leveraging CSS specificity or restructuring the CSS rules:
+
+**Solution 1 (Understanding Specificity):**
+
+The selector `.special div` is more specific than both `div` and `.special`.  Specificity is determined by a point system: 
+
+* Inline styles: 1000 points
+* IDs: 100 points
+* Classes, attributes and pseudo-classes: 10 points
+* Elements and pseudo-elements: 1 point
+
+`.special div` has a higher specificity due to the combination of class and element selector.  Understanding this is key to resolving the conflict.
+
+**Solution 2 (Restructuring CSS):**
+
+Rearrange the CSS rules to prioritize the desired style.  By placing the rule with the highest specificity (or the desired outcome) later in the stylesheet, it overrides previous declarations:
+
+```css
+div {
+  color: blue;
+}
+
+.special {
+  color: red;
+}
+
+.special div {
+  color: green;
+}
+```
+
+In `solution.css`, we haven't changed the specificity, but we will change the order of the rules to prioritize a specific rule (e.g. making the text red).  This solution highlights the importance of CSS order and demonstrates a different approach to solving the issue:
+
+```css
+div {
+  color: blue;
+}
+
+.special {
+  color: red;
+}
+
+.special div {
+  color: green;
+}
+```
