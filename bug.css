@@ -1,0 +1,19 @@
+The following CSS code snippet demonstrates an uncommon error related to the specificity of CSS selectors and the cascading order:
+
+```css
+div {
+  color: blue;
+}
+
+.special {
+  color: red;
+}
+
+.special div {
+  color: green;
+}
+
+<div class="special"></div>
+```
+
+The unexpected behavior: The text within the div element will be green, not blue or red. Why? Because the selector `.special div` is more specific than `div` and `.special` individually, even though it is lower in the CSS file.
